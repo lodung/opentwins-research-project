@@ -1,0 +1,26 @@
+{
+  "id": "mosquitto-target-connection",
+  "name": "mosquitto-target-connection",
+  "connectionType": "mqtt-5",
+  "connectionStatus": "open",
+  "uri": "tcp://ot-mosquitto:1883",
+  "sources": [],
+  "targets": [
+    {
+      "address": "opentwins/{{ topic:channel }}/{{ topic:criterion }}/{{ thing:namespace }}/{{ thing:name }}",
+      "topics": [
+        "_/_/things/twin/events?extraFields=thingId,attributes/_parents,features/idSimulationRun/properties/value",
+        "_/_/things/live/messages",
+        "_/_/things/live/commands"
+      ],
+      "qos": 1,
+      "authorizationContext": ["nginx:ditto"],
+      "headerMapping": {}
+    }
+  ],
+  "clientCount": 1,
+  "failoverEnabled": true,
+  "validateCertificates": true,
+  "processorPoolSize": 1,
+  "tags": []
+}

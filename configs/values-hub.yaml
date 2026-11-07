@@ -1,0 +1,34 @@
+ditto:
+  global:
+    jvmOptions: >
+      -XX:+ExitOnOutOfMemoryError
+      -XX:+UseContainerSupport
+      -XX:+UseStringDeduplication
+      -Xss256k
+      -XX:MaxMetaspaceSize=128m
+      -XX:ReservedCodeCacheSize=64m
+  gateway:
+    resources:
+      memoryMi: 512
+    jvm:
+      heapRamPercentage: 40
+  connectivity:
+    resources:
+      memoryMi: 512
+    jvm:
+      heapRamPercentage: 40
+  policies:
+    resources:
+      memoryMi: 512
+    jvm:
+      heapRamPercentage: 40
+  things:
+    resources:
+      memoryMi: 512
+    jvm:
+      heapRamPercentage: 40
+  thingsSearch:
+    resources:
+      memoryMi: 512
+    jvm:
+      heapRamPercentage: 40

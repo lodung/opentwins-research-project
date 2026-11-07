@@ -1,0 +1,29 @@
+{
+  "policyId": "default:basic_policy",
+  "entries": {
+    "DEFAULT": {
+      "subjects": {
+        "nginx:ditto": {
+          "type": "Ditto user authenticated via nginx"
+        },
+        "nginx:devops": {
+          "type": "Devops user"
+        }
+      },
+      "resources": {
+        "policy:/": {
+          "grant": ["READ", "WRITE"],
+          "revoke": []
+        },
+        "thing:/": {
+          "grant": ["READ", "WRITE"],
+          "revoke": []
+        },
+        "message:/": {
+          "grant": ["READ", "WRITE"],
+          "revoke": []
+        }
+      }
+    }
+  }
+}
