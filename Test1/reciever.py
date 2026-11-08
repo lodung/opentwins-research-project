@@ -7,9 +7,9 @@ import datetime
 from paho.mqtt import client as mqtt_client
 import json
 
-broker = ''
-port = 
-topic = "opentwins/live/messages/prueba/#"
+broker = 'localhost'
+port = 30510
+topic = "opentwins/live/messages/#"
 # Generate a Client ID with the subscribe prefix.
 client_id = f'subscribe-{random.randint(0, 100)}'
 # username = 'emqx'

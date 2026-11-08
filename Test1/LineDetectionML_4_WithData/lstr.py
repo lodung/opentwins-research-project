@@ -251,7 +251,7 @@ def recognize_from_video(net, orig_target_sizes):
 
 
 def on_message(client, userdata, message):
-    url = "http://192.168.48.206:30525/api/2/things/distributed:imagerecognition/inbox/messages/move"
+    url = "http://localhost:31525/api/2/things/distributed:imagerecognition/inbox/messages/move"
     msg = json.loads(message.payload.decode("utf-8"))
     msg = msg['value']
     
@@ -298,10 +298,10 @@ if __name__ == '__main__':
     net = ailia.Net(MODEL_PATH, WEIGHT_PATH, env_id=args.env_id)
     orig_target_sizes = np.expand_dims(np.array([HEIGHT, WIDTH]), axis=0)
     
-    mqttBroker =""
+    mqttBroker ="localhost"
 
     client = mqtt.Client("ResendConsumer")
-    client.connect(mqttBroker, port=) 
+    client.connect(mqttBroker, port=30510) 
     client.subscribe("opentwins/twin/events/distributed/imagerecognition")
     client.on_message=on_message 
     client.loop_forever()

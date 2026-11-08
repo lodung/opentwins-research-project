@@ -11,7 +11,7 @@ import cv2
 #COSAS DE MQTT
 #-------------------------------------------------------------
 client = mqtt.Client("pruebasDistribuidos")
-client.connect("", port=)
+client.connect("localhost", port=30510)
 
 def get_image_array():
     images = []
@@ -27,7 +27,7 @@ def get_image_array():
 def time_to_str(): return datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def sendData_ditto_protocol(group, rep, msg, time):
+def sendData_ditto_protocol(group, rep, msg, image, time):
     message = {
         "topic" : "distributed/imagerecognition/things/twin/commands/merge",
         "headers":{
@@ -47,12 +47,12 @@ def sendData_ditto_protocol(group, rep, msg, time):
             },
             "msg": {
                 "properties": {
-                    "value": rep
+                    "value": msg
                 }
             },
             "image": {
                 "properties": {
-                    "value": msg
+                    "value": image
                 }
             },
             "timestamp": {
