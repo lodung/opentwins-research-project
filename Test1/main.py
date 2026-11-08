@@ -15,7 +15,7 @@ client.connect("localhost", port=30510)
 
 def get_image_array():
     images = []
-    for i in range(0, 61):
+    for i in range(1, 62):
         with open("images/image ({}).jpg".format(i),'rb') as file:
             filecontent = file.read()
             encoded = base64.b64encode(filecontent)
@@ -73,7 +73,8 @@ def main():
         for rep in range(0, 10):
             print("Repeticion {}".format(rep))
             
-            for message in range(0, (group+1)*10):
+            num_messages = 1 if group == 0 else group * 10
+            for message in range(0, num_messages):
                 dt = datetime.datetime.now(timezone.utc)  
                 utc_time = dt.replace(tzinfo=timezone.utc) 
                 utc_timestamp = utc_time.timestamp()

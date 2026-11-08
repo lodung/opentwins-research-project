@@ -271,7 +271,8 @@ def on_message(client, userdata, message):
     payload = json.dumps(msg)
     headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Basic ZGl0dG86ZGl0dG8='
+    'Authorization': 'Basic ZGl0dG86ZGl0dG8=',
+    'response-required' : 'false'
     }
     
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -289,7 +290,6 @@ def main():
         recognize_from_video(net, orig_target_sizes)
     else:
         recognize_from_image(net, orig_target_sizes)
-
 
 if __name__ == '__main__':
     # model files check and download
