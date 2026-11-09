@@ -45,10 +45,10 @@ def subscribe(client: mqtt_client):
         utc_timestamp = utc_time.timestamp()
         new_json['sendingBackTime_Final'] = utc_timestamp
         
-        print("Nuevo")
         todos.append(new_json)
+        print(f"Đã nhận {len(todos)}/5510")
         
-        if len(todos) == 5510:
+        if len(todos) % 50 == 0 or len(todos) >= 5510:
             with open('results.json', 'w') as outfile:
                 json.dump(todos, outfile)
 

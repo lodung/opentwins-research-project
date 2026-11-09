@@ -68,6 +68,7 @@ def sendData_ditto_protocol(group, rep, msg, image, time):
 
 def main():
     images = get_image_array()
+    count = 0
     for group in range(0, 11):
         print("Bloque {}".format(group))
         for rep in range(0, 10):
@@ -79,6 +80,9 @@ def main():
                 utc_time = dt.replace(tzinfo=timezone.utc) 
                 utc_timestamp = utc_time.timestamp()
                 sendData_ditto_protocol(group, rep, message, images[0], utc_timestamp)
+                count += 1
+                print("{}/5510".format(count))
+                time.sleep(0.01)
             time.sleep(10)
         time.sleep(15)
 
