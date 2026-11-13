@@ -12,19 +12,7 @@ ditto:
       devops:
         user: devops
         password: foobar
-    jvmOptions: >
-      -XX:+ExitOnOutOfMemoryError
-      -XX:+UseContainerSupport
-      -XX:+UseStringDeduplication
-      -Xss256k
-      -XX:MaxMetaspaceSize=128m
-      -XX:ReservedCodeCacheSize=64m
   gateway:
-    resources:
-      cpu: 0.1
-      memoryMi: 512
-    jvm:
-      heapRamPercentage: 40
     config:
       authentication:
         enablePreAuthentication: true
@@ -32,36 +20,7 @@ ditto:
           devopsPassword: foobar
           statusPassword: foobar
   connectivity:
-    resources:
-      cpu: 0.1
-      memoryMi: 512
-    jvm:
-      heapRamPercentage: 40
     config:
       connections:
-        # Cho phép Ditto kết nối với Mosquitto nội bộ trong cụm
         allowedHostnames: "ot-mosquitto,opentwins-mosquitto,host.docker.internal,localhost"
         blockedHostRegex: ""
-  policies:
-    resources:
-      cpu: 0.1
-      memoryMi: 512
-    jvm:
-      heapRamPercentage: 40
-  things:
-    resources:
-      cpu: 0.1
-      memoryMi: 512
-    jvm:
-      heapRamPercentage: 40
-  thingsSearch:
-    resources:
-      cpu: 0.1
-      memoryMi: 512
-    jvm:
-      heapRamPercentage: 40
-  dittoui:
-    enabled: false
-
-mqtttomongo:
-  replicaCount: 0

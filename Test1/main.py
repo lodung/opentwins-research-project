@@ -82,7 +82,7 @@ def main():
                 sendData_ditto_protocol(group, rep, message, images[0], utc_timestamp)
                 count += 1
                 print("{}/5510".format(count))
-                time.sleep(0.01)
+                time.sleep(0.1)
             time.sleep(10)
         time.sleep(15)
 
